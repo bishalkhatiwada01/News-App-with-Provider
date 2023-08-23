@@ -27,6 +27,8 @@ class NewsNotifier extends StateNotifier<NewsState> {
     final news = NewsModel.fromJson(newsResponse);
     state = state.copyWith(newsModel: news, isLoading: false);
   }
+
+  void loadSearchedNews(String value) {}
 }
 
 final newsProvider =

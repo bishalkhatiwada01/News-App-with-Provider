@@ -9,12 +9,17 @@ class NewsService {
     ),
   );
   fetchNews() async {
-    var response = await _dio.get("&q=sports");
+    var response = await _dio.get(
+        'v2/top-headlines?country=us&apiKey=094abddfda1944fb87d868677f3005ee');
 
     return response.data;
   }
 
-  // fetchNewsBySearching(String title) async{
-  //   var response = await _dio.get()
-  // }
+  fetchNewsBySearching(String title) async {
+    var response = await _dio.get('v2/everything?q=' +
+        title +
+        '&apiKey=094abddfda1944fb87d868677f3005ee');
+
+    return response.data;
+  }
 }
